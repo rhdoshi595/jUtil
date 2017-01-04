@@ -1,4 +1,4 @@
-const DomNodeCollection = require("./dom_node_collection");
+const DomNodeCollection = require("./dom_node_collection.js");
 
 const functionQueue = [];
 let ready = false;
