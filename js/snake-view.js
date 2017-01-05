@@ -18,13 +18,40 @@ class View {
     }
   }
 
+  render(){
+    this.updateClasses(this.board.snake.segments, "snake");
+    this.updateClasses([this.board.apple.position], "apple");
+  }
+
+  updateClasses(coordinates, className){
+    $l(`.${className}`).removeClass(className);
+    coordinates.forEach((coordinate) => {
+      const flatCoordinate = ((coordinate.x * 20) + coordinate.y);
+      if(this.$li){
+        this.$li.eq(flatCoordinate).addClass(className);
+      }
+    });
+  }
+
+  drawBoard(){
+    let html = "";
+    for(let i = 0; i < 20; i += 1){
+      html += "<ul>";
+      for(let j = 0; j < 20; j += 1){
+        html += "<li></li>";
+      }
+      html += "</ul>";
+    }
+    this.$el.html(html);
+    this.$li = $l("li");
+  }
+
   step(){
     const rootEl = $l('.snake');
     if(this.board.snake.segments.length > 0){
       this.board.snake.move();
       this.render();
     } else {
-      alert("Ahhh! Try again");
       window.clearInterval(this.intervalId);
       new View(rootEl);
     }
@@ -32,10 +59,10 @@ class View {
 }
 
 View.MOVES = {
-  38: "U",
-  39: "R",
-  40: "D",
-  37: "L"
+  38: "N",
+  39: "E",
+  40: "S",
+  37: "W"
 };
 
 module.exports = View;

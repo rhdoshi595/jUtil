@@ -13,6 +13,7 @@ class Coordinate{
   }
 
   plus(cardinal){
+    
     return new Coordinate(this.x + cardinal.x, this.y + cardinal.y);
   }
 }
