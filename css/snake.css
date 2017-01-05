@@ -1,0 +1,21 @@
+li {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background: lightgrey;
+}
+
+.apple {
+  background: red;
+}
+
+.snake {
+  background: blue;
+}
+
+.points-label {
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+}

@@ -2,7 +2,7 @@ const Coordinate = require('./coordinate.js');
 
 class Snake {
   constructor(board){
-    this.direction = "D";
+    this.direction = "N";
     this.board = board;
     this.segments = [new Coordinate(10, 10)];
     this.turning = false;
@@ -10,7 +10,7 @@ class Snake {
   }
 
   head(){
-    return this.segments.slice(-1)[0];
+    return this.segments[0];
   }
 
   validMove(){
@@ -59,13 +59,23 @@ class Snake {
       this.direction = dir;
     }
   }
+
+  hasCoordinate([x, y]){
+    this.segments.forEach((coordinate) => {
+      if ((coordinate[0] === x) && (coordinate[1] === y)){
+        return true;
+      }
+    });
+
+    return false;
+  }
 }
 
 Snake.CARDINALS = {
-  "U": new Coordinate(-1, 0),
-  "D": new Coordinate(1, 0),
-  "R": new Coordinate(0, 1),
-  "L": new Coordinate(0, -1)
+  "N": new Coordinate(-1, 0),
+  "S": new Coordinate(1, 0),
+  "E": new Coordinate(0, 1),
+  "W": new Coordinate(0, -1)
 };
 
 module.exports = Snake;

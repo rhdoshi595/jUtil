@@ -19,6 +19,17 @@ class Board {
     return grid;
   }
 
+  render(){
+    const grid = Board.createGrid();
+
+    this.snake.segments.forEach((coordinate) => {
+      grid[coordinate.x][coordinate.y] = "S";
+    });
+
+    grid[this.apple.position.x][this.apple.position.y] = "A";
+    grid.map(row => row.join("")).join("\n");
+  }
+
   validPosition(coordinate){
     return (
       (coordinate.x >= 0) &&
