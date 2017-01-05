@@ -68,11 +68,6 @@ $l.ajax = (optionsObj) => {
   optionsObj = $l.extend(apple, optionsObj);
   const xhr = new XMLHttpRequest();
 
-  // optionsObj.method = optionsObj.method.toUpperCase();
-  // if (optionsObj.method === "GET"){
-  //   optionsObj.url += "?" + queryString(optionsObj.data);
-  // }
-
   xhr.open(optionsObj.method, optionsObj.url, true);
 
   xhr.onload = (e) => {
