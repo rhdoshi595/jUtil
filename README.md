@@ -11,16 +11,16 @@ jUtility is a fast and small JavaScript library inspired by jQuery. jUtility sim
 
 ## Installation
 
-To use jUtility, start by downloading `./jUtility/lib` and include it in your project directory. Then, include the following script tag in the `head` section of your HTML document:
+To use jUtility, start by downloading `./jUtility` and include it in your project directory. Then, include the following script tag in the `head` section of your HTML document:
 
 ``` javascript
-  <script src="./jUtility/lib/main.js" charset="utf-8"></script>
+  <script src="./jUtility/jUtility.js" charset="utf-8"></script>
 ```
 
 You can also include the following line at the top of every file that uses jUtility.
 
 ``` javascript
-  const $l = require('./../jUtility/lib/main.js');
+  const $l = require('./../jUtility/jUtility.js');
 ```
 
 ## Examples

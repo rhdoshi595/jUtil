@@ -46,7 +46,7 @@
 
 	const View = __webpack_require__(1);
 	const Game = __webpack_require__(3);
-	const $l = __webpack_require__(5);
+	const $l = __webpack_require__(6);
 	
 	$l(() => {
 	  const rootEl = $l('.snake');
@@ -59,7 +59,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Board = __webpack_require__(2);
-	const $l = __webpack_require__(5);
+	const $l = __webpack_require__(6);
 	
 	class View {
 	  constructor($el){
@@ -133,7 +133,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Snake = __webpack_require__(3);
-	const Apple = __webpack_require__(7);
+	const Apple = __webpack_require__(5);
 	
 	class Board {
 	  constructor(){
@@ -295,7 +295,35 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const DomNodeCollection = __webpack_require__(6);
+	const Coordinate = __webpack_require__(4);
+	
+	class Apple{
+	  constructor(board){
+	    this.board = board;
+	    this.addApple();
+	  }
+	
+	  addApple(){
+	    let x = Math.floor(Math.random() * 20);
+	    let y = Math.floor(Math.random() * 20);
+	
+	    while (this.board.snake.hasCoordinate([x,y])){
+	      x = Math.floor(Math.random() * 20);
+	      y = Math.floor(Math.random() * 20);
+	    }
+	
+	    this.position = new Coordinate(x, y);
+	  }
+	}
+	
+	module.exports = Apple;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const DomNodeCollection = __webpack_require__(7);
 	
 	const functionQueue = [];
 	let ready = false;
@@ -382,7 +410,7 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	class DomNodeCollection {
@@ -510,34 +538,6 @@
 	}
 	
 	module.exports = DomNodeCollection;
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	const Coordinate = __webpack_require__(4);
-	
-	class Apple{
-	  constructor(board){
-	    this.board = board;
-	    this.addApple();
-	  }
-	
-	  addApple(){
-	    let x = Math.floor(Math.random() * 20);
-	    let y = Math.floor(Math.random() * 20);
-	
-	    while (this.board.snake.hasCoordinate([x,y])){
-	      x = Math.floor(Math.random() * 20);
-	      y = Math.floor(Math.random() * 20);
-	    }
-	
-	    this.position = new Coordinate(x, y);
-	  }
-	}
-	
-	module.exports = Apple;
 
 
 /***/ }
