@@ -1,7 +1,7 @@
 # jUtility
 
 [Snake Demo][link]
-[link]: https://rhdoshi595.github.io/Snake-with-jUtility/
+[link]: https://rhdoshi595.github.io/jUtil/
 
 ## Background
 
